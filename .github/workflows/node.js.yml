@@ -14,6 +14,22 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+          MYSQL_USER: ${{ secrets.MYSQL_USER }}
+          MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
     strategy:
       matrix:
         node-version: [24.x]
@@ -29,4 +45,11 @@ jobs:
     - run: npm ci
     - run: npm run lint
     - run: npm run build
-    - run: npm test:unit
+    - run: npm run test:unit
+    - name: Run integration tests
+      env:
+        DB_HOST: localhost
+        DB_USER: ${{ secrets.MYSQL_USER }}
+        DB_PASS: ${{ secrets.MYSQL_PASSWORD }}
+        DB_NAME: ${{ secrets.MYSQL_DATABASE }}
+    run: npm run test:integration

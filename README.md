@@ -1,3 +1,14 @@
+# Github actions CI/CD
+
+- Added github actions and created yml file.
+- Added node.js version to yml file.
+- Added run lint and run test:unit.
+- Tested everything works, minor spelling error caused a run issue in tests.
+- Added services for database tests.
+- Added run test:intergration.
+- Added secrets.
+- 
+
 # Simple Node CI/CD demo including integration testing
 
 Tests & code based on <https://github.com/ilkkamtk/integration-testing-ready>

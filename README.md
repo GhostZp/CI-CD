@@ -10,6 +10,8 @@
 - Ran into an error where integration tests passed locally but not on github. 
 - Added run mysql to create database on github.
 - All tests passed 9/9!
+- <img width="960" height="1140" alt="image" src="https://github.com/user-attachments/assets/d45677e2-0240-47f9-8d55-d0154fe2efec" />
+
 
 # Simple Node CI/CD demo including integration testing
 

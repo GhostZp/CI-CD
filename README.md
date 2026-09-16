@@ -7,7 +7,8 @@
 - Added services for database tests.
 - Added run test:intergration.
 - Added secrets.
-- 
+- Ran into an error where integration tests passed locally but not on github. 
+- Added run mysql to create database on github.
 
 # Simple Node CI/CD demo including integration testing
 

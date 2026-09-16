@@ -46,6 +46,8 @@ jobs:
     - run: npm run lint
     - run: npm run build
     - run: npm run test:unit
+    - name: Initialize database
+      run: mysql -h 127.0.0.1 -u${{ secrets.MYSQL_USER }} -p${{ secrets.MYSQL_PASSWORD }} ${{ secrets.MYSQL_DATABASE }} < db/create-db.sql
     - name: Run integration tests
       env:
         DB_HOST: localhost

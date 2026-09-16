@@ -10,6 +10,7 @@
     "lint": "eslint --fix src test",
     "test": "jest",
     "test:unit": "jest -c jest.unit.config.js",
+    "test:integration": "jest test/integration",
     "apidoc": "apidoc -o docs/"
   },
   "keywords": [],
